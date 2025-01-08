@@ -1,43 +1,38 @@
 <!DOCTYPE html>
 <html lang="de">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gaming Elite - Gameserver</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <style>
-        /* Anpassbare Farben und Hintergrund */
+        /* Globale Design-Variablen */
         :root {
             --primary-color: #00ffcc;
-            --secondary-color: #007bff;
-            --header-background: rgba(17, 17, 17, 0.8);
-            --text-color: #fff;
-            --button-color: #28a745;
-            --button-hover-color: #218838;
+            --secondary-color: #ff6600;
+            --background-color: #121212;
+            --text-color: #ffffff;
+            --header-background: rgba(0, 0, 0, 0.8);
+            --card-background: #1f1f1f;
+            --button-color: #ff6600;
+            --button-hover-color: #ffcc00;
+            --link-hover-color: #00ffcc;
+            --shadow-color: rgba(0, 0, 0, 0.4);
         }
 
-        /* Allgemeine Stile */
-        body, html {
-            font-family: 'Roboto', sans-serif;
+        /* Grundlegendes Reset */
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--background-color);
             color: var(--text-color);
-            background-color: #333;
-            overflow: hidden; /* Prevent scrolling while loader is active */
-            height: 100vh;
-        }
-
-        .Online {
-            color: green;
-        }
-
-        .Arbeit {
-            color: orange;
-        }
-
-        .Realese {
-            color: red;
+            line-height: 1.6;
+            overflow-x: hidden;
         }
 
         /* Loader */
@@ -48,141 +43,18 @@
             justify-content: center;
             height: 100vh;
             width: 100vw;
-            background-color: rgba(0, 0, 0, 0.7);
+            background-color: var(--background-color);
             z-index: 1000;
         }
 
         .loader-text {
-            font-size: 2.5rem;
-            font-weight: bold;
+            font-size: 3rem;
+            font-weight: 700;
             color: var(--primary-color);
-            opacity: 0;
+            text-transform: uppercase;
             animation: fadeInSlideDown 2s forwards;
         }
 
-        /* Header */
-        header {
-            background: var(--header-background);
-            color: var(--text-color);
-            padding: 1rem 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            left: 0;
-            z-index: 100;
-            transition: background 0.3s ease;
-        }
-
-        header .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 2rem;
-        }
-
-        header h1 {
-            margin: 0;
-            color: var(--primary-color);
-            font-weight: 700;
-        }
-
-        header nav a {
-            color: var(--text-color);
-            text-decoration: none;
-            margin: 0 1rem;
-            font-weight: bold;
-            transition: color 0.3s ease;
-        }
-
-        header nav a:hover {
-            color: var(--primary-color);
-        }
-
-        /* Server Page Content */
-        .servers-page {
-            padding: 6rem 1rem;
-            color: #333;
-            margin-top: 4rem;
-        }
-
-        .server-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .server-card {
-            background-size: cover;
-            background-position: center;
-            color: #fff;
-            padding: 2rem;
-            border-radius: 8px;
-            position: relative;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-            overflow: hidden;
-            transition: transform 0.2s;
-        }
-
-        .server-card:hover {
-            transform: scale(1.05);
-        }
-
-        .server-card::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.5); /* Für besseren Kontrast */
-            border-radius: 8px;
-        }
-
-        .server-info {
-            position: relative;
-            z-index: 2;
-        }
-
-        .server-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .server-card p {
-            margin: 0.3rem 0;
-        }
-
-        /* Button */
-        .button {
-            display: inline-block;
-            background-color: var(--button-color);
-            color: #fff;
-            padding: 10px 15px;
-            border: none;
-            border-radius: 5px;
-            text-decoration: none;
-            transition: background-color 0.3s;
-            font-weight: bold;
-        }
-
-        .button:hover {
-            background-color: var(--button-hover-color);
-        }
-
-        /* Footer */
-        footer {
-            background: var(--header-background);
-            color: var(--text-color);
-            padding: 1.5rem 0;
-            text-align: center;
-        }
-
-        footer p {
-            margin: 0;
-        }
-
-        /* Animation */
         @keyframes fadeInSlideDown {
             0% {
                 opacity: 0;
@@ -194,13 +66,377 @@
             }
         }
 
-        /* Main Content */
-        .main-content {
-            display: none; /* Hide main content until loader is hidden */
+        /* Header Styles */
+        header {
+            background: var(--header-background);
+            padding: 1.5rem 2rem;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 10px var(--shadow-color);
+            transition: background 0.3s ease;
         }
+
+        header h1 {
+            color: var(--primary-color);
+            font-size: 2rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        header nav {
+            display: flex;
+            gap: 2rem;
+        }
+
+        header nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.2rem;
+            transition: color 0.3s;
+        }
+
+        header nav a:hover {
+            color: var(--link-hover-color);
+        }
+
+        .burger-menu {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .burger-menu div {
+            width: 30px;
+            height: 3px;
+            background-color: var(--text-color);
+            transition: transform 0.3s ease;
+        }
+
+        /* Mobile Navigation */
+        @media (max-width: 768px) {
+            header nav {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background: var(--header-background);
+                padding: 2rem;
+                gap: 1rem;
+            }
+
+            header nav.active {
+                display: flex;
+            }
+
+            .burger-menu {
+                display: flex;
+            }
+
+            .burger-menu.open div:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+
+            .burger-menu.open div:nth-child(2) {
+                opacity: 0;
+            }
+
+            .burger-menu.open div:nth-child(3) {
+                transform: rotate(-45deg) translate(5px, -5px);
+            }
+
+            header nav a {
+                font-size: 1.5rem;
+                text-align: center;
+            }
+        }
+
+        .about-page {
+    padding: 4rem 2rem;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    text-align: center;
+}
+
+.about-page h2 {
+    font-size: 2.8rem;
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+}
+
+.about-section {
+    margin-bottom: 3rem;
+    padding: 2rem;
+    background: linear-gradient(145deg, rgba(0, 0, 0, 0.7), rgba(50, 50, 50, 0.9));
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.about-section:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+}
+
+.about-section h3 {
+    font-size: 2rem;
+    color: var(--secondary-color);
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.about-section p,
+.about-section ul {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin: 0.5rem 0;
+}
+
+.about-section ul {
+    list-style-type: disc;
+    padding-left: 2rem;
+}
+
+.about-section ul li {
+    margin: 0.8rem 0;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .about-page {
+        padding: 3rem 1.5rem;
+    }
+
+    .about-section h3 {
+        font-size: 1.6rem;
+    }
+
+    .about-section p,
+    .about-section ul {
+        font-size: 1rem;
+    }
+}
+
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            background: url('https://source.unsplash.com/1600x900/?gaming,technology') no-repeat center center/cover;
+            padding: 6rem 2rem;
+            text-align: center;
+            color: var(--text-color);
+            position: relative;
+        }
+
+        .hero .container {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 3rem;
+            border-radius: 15px;
+            display: inline-block;
+            box-shadow: 0 4px 12px var(--shadow-color);
+        }
+
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+                /* Server Section */
+                .server-section {
+            padding: 4rem 2rem;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            text-align: center;
+        }
+
+        .server-section h2 {
+            font-size: 2.8rem;
+            color: var(--primary-color);
+            margin-bottom: 2rem;
+        }
+
+        .server-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .server-card {
+            background: var(--card-background);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 6px 15px var(--shadow-color);
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .server-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .server-card h3 {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .server-status {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-top: 1rem;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+        }
+
+        .status-online {
+            background-color: var(--green);
+            color: var(--text-color);
+        }
+
+        .status-offline {
+            background-color: var(--red);
+            color: var(--text-color);
+        }
+
+        .status-maintenance {
+            background-color: var(--yellow);
+            color: var(--text-color);
+        }
+
+        .cta-button {
+            background-color: var(--button-color);
+            color: var(--text-color);
+            padding: 1rem 2rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s;
+            font-size: 1.2rem;
+        }
+
+        .cta-button:hover {
+            background-color: var(--button-hover-color);
+        }
+
+        .main-content {
+            padding: 3rem 2rem;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .feature-item {
+            background: var(--card-background);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 6px 15px var(--shadow-color);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-item h3 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        footer {
+            background: var(--header-background);
+            color: var(--text-color);
+            padding: 3rem 2rem;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 -4px 10px var(--shadow-color);
+        }
+
+        .footer-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-container div {
+            flex: 1 1 200px;
+        }
+
+        .footer-container h4 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .footer-nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-nav ul li {
+            margin: 0.5rem 0;
+        }
+
+        .footer-nav ul li a {
+            color: var(--text-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-nav ul li a:hover {
+            color: var(--link-hover-color);
+        }
+
+        .footer-social a {
+            margin-right: 1.5rem;
+            display: inline-block;
+        }
+
+        .footer-social img {
+            width: 30px;
+            height: 30px;
+            transition: transform 0.3s ease;
+        }
+
+        .footer-social img:hover {
+            transform: scale(1.1);
+        }
+
+        .footer-credits {
+            font-size: 0.9rem;
+            color: var(--text-color);
+        }
+
     </style>
 </head>
-
 <body>
     <!-- Loader -->
     <div class="loader" id="loader">
@@ -209,88 +445,87 @@
 
     <!-- Main Content -->
     <div class="main-content" id="mainContent">
-        <!-- Header -->
         <header>
-            <div class="container">
-                <h1>Gaming Elite - Gameserver</h1>
-                <nav>
-                    <a href="index.html">Home</a>
-                    <a href="server.html">Server</a>
-                    <a href="us.html">Unser Team</a>
-                </nav>
+            <h1 style="margin: 0;">Gaming Elite</h1>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="server.html">Server</a>
+                <a href="us.html">Unser Team</a>
+            </nav>
+            <div class="burger-menu" id="burgerMenu">
+                <div></div>
+                <div></div>
+                <div></div>
             </div>
         </header>
 
-        <!-- Main Content -->
-        <main class="servers-page">
+        <section class="hero">
             <div class="container">
-                <h2>Unsere Gameserver</h2>
-                <div class="server-list">
-                    <!-- Server Card 1 -->
-                    <div class="server-card" style="background-image: url('https://source.unsplash.com/600x400/?minecraft');">
-                        <div class="server-info">
-                            <h3>Minecraft</h3>
-                            <p><strong>IP-Adresse:</strong> Minecraft-Gaming-Elite.de</p>
-                            <p><strong>Passwort:</strong> Kein Passwort</p>
-                            <p><strong>Art:</strong> Survival Server</p>
-                            <p><strong>Verifiziert:</strong> Verifiziert von Gaming Elite</p>
-                            <h2 class="Online">Online</h2>
-                            <a href="#" class="button">Server Satus</a>
-                        </div>
-                    </div>
-                    <!-- Server Card 2 -->
-                    <div class="server-card" style="background-image: url('https://source.unsplash.com/600x400/?farming');">
-                        <div class="server-info">
-                            <h3>Landwirtschafts Simulator 22</h3>
-                            <h2 class="Arbeit">Server in Arbeit</h2>
-                            <a href="#" class="button">Server Satus</a>
-                        </div>
-                    </div>
-                    <!-- Server Card 3 -->
-                    <div class="server-card" style="background-image: url('https://source.unsplash.com/600x400/?satisfactory');">
-                        <div class="server-info">
-                            <h3>Satisfactory</h3>
-                            <p><strong>IP-Adresse:</strong> Satisfactory-Gaming-Elite.de</p>
-                            <p><strong>Passwort:</strong> Kein Passwort</p>
-                            <p><strong>Art:</strong> Build Server</p>
-                            <p><strong>Verifiziert:</strong> Verifiziert von Gaming Elite</p>
-                            <h2 class="Online">Online</h2>
-                            <a href="#" class="button">Server Satus</a>
-                        </div>
-                    </div>
-                    <!-- Server Card 4 -->
-                    <div class="server-card" style="background-image: url('https://source.unsplash.com/600x400/?fortnite');">
-                        <div class="server-info">
-                            <h3>Landwirtschafts Simulator 25</h3>
-                            <h2 class="Realese">Server kommt bei Release</h2>
-                            <a href="#" class="button">Server Satus</a>
-                        </div>
-                    </div>
-                    <!-- Server Card 5 -->
-                    <div class="server-card" style="background-image: url('https://source.unsplash.com/600x400/?csgo');">
-                        <div class="server-info">
-                            <h3>Counter-Strike: Global Offensive</h3>
-                            <p><strong>IP-Adresse:</strong> CSGO-Gaming-Elite.de</p>
-                            <p><strong>Passwort:</strong> Kein Passwort</p>
-                            <p><strong>Art:</strong> Competitive Server</p>
-                            <p><strong>Verifiziert:</strong> Verifiziert von Gaming Elite</p>
-                            <h2 class="Online">Online</h2>
-                            <a href="#" class="button">Server Satus</a>
-                        </div>
-                    </div>
+                <h2>Willkommen bei Gaming Elite!</h2>
+                <p>Hier sind unsere Gameserver</p>
+            </div>
+        </section>
+            
+<!-- Server Section -->
+ <section class="server-section">
+    <h2>Unsere Server</h2>
+    <div class="server-cards">
+        <div class="server-card">
+            <h3>Minecraft</h3>
+            <div class="server-status status-maintenance">In Wartung</div>
+            <a href="#" class="cta-button">Server betreten</a>
+        </div>
+        <div class="server-card">
+            <h3>LS 2025</h3>
+            <div class="server-status status-maintenance">In Wartung</div>
+            <a href="#" class="cta-button">Server betreten</a>
+        </div>
+        <div class="server-card">
+            <h3>Rust: [DE] Gaming Elite</h3>
+            <div class="server-status status-Online">Online</div>
+            <a href="https://discord.gg/J6v8gcTYt4" class="cta-button">Server betreten</a>
+        </div>
+    </div>
+</section>
+
+        <footer>
+            <div class="footer-container">
+                <div class="footer-nav">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="server.html">Server</a></li>
+                        <li><a href="us.html">Unser Team</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Kontakt</h4>
+                    <p>E-Mail: <a href="mailto:Gaming-Elite@outlook.de">Gaming-Elite@outlook.de</a></p>
+                </div>
+                <div class="footer-social">
+                    <h4>Folge Uns</h4>
+                    <a href="https://discord.gg/R5TNzCV6mS" target="_blank" aria-label="Discord">
+                        <img src="icons/discord-svgrepo-com.svg" alt="Discord" />
+                    </a>
+                    <a href="https://www.tiktok.com/@gaming_elite_2025" target="_blank" aria-label="TikTok">
+                        <img src="icons/tiktok-svgrepo-com.svg" alt="TikTok" />
+                    </a>
                 </div>
             </div>
-        </main>
-
-        <!-- Footer -->
-        <footer>
-            <div class="container">
-                <p>&copy; 2024 Gaming Elite. Alle Rechte vorbehalten.</p>
-            </div>
+            <p class="footer-credits">&copy; 2025 Gaming Elite. Alle Rechte vorbehalten.</p>
         </footer>
     </div>
 
     <script>
+        // Toggle mobile navigation menu
+        const burgerMenu = document.getElementById('burgerMenu');
+        const nav = document.querySelector('header nav');
+
+        burgerMenu.addEventListener('click', () => {
+            nav.classList.toggle('active');
+            burgerMenu.classList.toggle('open');
+        });
+
         // Hide loader and show main content after a delay
         window.addEventListener('load', function() {
             const loader = document.getElementById('loader');
@@ -299,9 +534,8 @@
                 loader.style.display = 'none';  // Hide the loader
                 mainContent.style.display = 'block';  // Show main content
                 document.body.style.overflow = 'auto';  // Enable scrolling
-            }, 3000); // Adjust delay as needed
+            }, 1000); // Adjust delay as needed
         });
     </script>
 </body>
-
 </html>
