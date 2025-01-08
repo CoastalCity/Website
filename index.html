@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gaming Elite - Home</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Globale Design-Variablen */
+        :root {
+            --primary-color: #00ffcc;
+            --secondary-color: #ffaa00;
+            --background-color: #121212;
+            --text-color: #ffffff;
+            --header-background: rgba(0, 0, 0, 0.9);
+            --card-background: #1f1f1f;
+            --button-color: #ffaa00;
+            --button-hover-color: #ffcc00;
+        }
+
+        /* Grundlegendes Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* Loader */
+        .loader {
+            position: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            width: 100vw;
+            background-color: var(--background-color);
+            z-index: 1000;
+        }
+
+        .loader-text {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            opacity: 0;
+            animation: fadeInSlideDown 2s forwards;
+        }
+
+        @keyframes fadeInSlideDown {
+            0% {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        header {
+            background: var(--header-background);
+            padding: 1rem 2rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        header h1 {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+        }
+
+        header nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            margin-left: 1.5rem;
+            transition: color 0.3s;
+        }
+
+        header nav a:hover {
+            color: var(--primary-color);
+        }
+
+        .hero {
+            margin-top: 80px;
+            background: url('https://source.unsplash.com/1600x900/?gaming,technology') no-repeat center center/cover;
+            padding: 4rem 2rem;
+            text-align: center;
+            color: var(--text-color);
+        }
+
+        .hero .container {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 2rem;
+            border-radius: 10px;
+            display: inline-block;
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .cta-button {
+            background-color: var(--button-color);
+            color: var(--text-color);
+            padding: 0.75rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: var(--button-hover-color);
+        }
+
+        .main-content {
+            padding: 2rem;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .feature-item {
+            background: var(--card-background);
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .feature-item h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        footer {
+            background: var(--header-background);
+            text-align: center;
+            padding: 1rem 0;
+            margin-top: 2rem;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 0.9rem;
+        }
+
+        footer nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0.5rem 0;
+        }
+
+        footer nav ul li {
+            display: inline;
+            margin: 0 0.5rem;
+        }
+
+        footer nav ul li a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        footer nav ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        /* About Page Specific Styles */
+        .about-page {
+            padding: 2rem;
+        }
+
+        .about-section {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .about-section h3 {
+            font-size: 1.8rem;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+
+        .about-section p, .about-section ul {
+            font-size: 1rem;
+            line-height: 1.8;
+            margin: 0.5rem 0;
+        }
+
+        .about-section ul {
+            list-style-type: disc;
+            padding-left: 1.5rem;
+        }
+
+        .about-section ul li {
+            margin: 0.5rem 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Loader -->
+    <div class="loader" id="loader">
+        <div class="loader-text">Gaming Elite</div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content" id="mainContent">
+        <header>
+            <h1>Gaming Elite</h1>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="server.html">Server</a>
+                <a href="us.html">Unser Team</a>
+            </nav>
+        </header>
+
+        <section class="hero">
+            <div class="container">
+                <h2>Willkommen bei Gaming Elite!</h2>
+                <p>Deine Plattform für außergewöhnliche Gameserver.</p>
+                <a href="server.html" class="cta-button">Unsere Server</a>
+            </div>
+        </section>
+
+        <main class="main-content">
+            <h2>Unsere Funktionen</h2>
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <h3>High-Performance Server</h3>
+                    <p>Optimierte Hardware für ein lagfreies Spielerlebnis.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>Einfache Bedienung</h3>
+                    <p>Intuitive Verwaltung für Server aller Art.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>24/7 Support</h3>
+                    <p>Unser Team steht dir rund um die Uhr zur Verfügung.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>Community Fokus</h3>
+                    <p>Förderung von Spielerfreundschaften und Teamarbeit.</p>
+                </div>
+            </div>
+
+            <!-- Über uns -->
+            <main class="about-page">
+                <h2>Über Gaming Elite</h2>
+                
+                <section class="about-section">
+                    <h3>Unsere Geschichte</h3>
+                    <p>Gaming Elite wurde 2023 von leidenschaftlichen Gamern gegründet, die eine Plattform schaffen wollten, auf der sich Spieler vernetzen und gemeinsam ihre Lieblingsspiele genießen können.</p>
+                </section>
+
+                <section class="about-section">
+                    <h3>Unser Team</h3>
+                    <p>Unser Team besteht aus erfahrenen Entwicklern, Moderatoren und Community-Managern, die sich dafür einsetzen, dass jeder Spieler das beste Erlebnis hat.</p>
+                </section>
+
+                <section class="about-section">
+                    <h3>Unsere Werte</h3>
+                    <ul>
+                        <li><strong>Gemeinschaft:</strong> Wir glauben an eine freundliche Atmosphäre, die Spieler willkommen heißt.</li>
+                        <li><strong>Leidenschaft:</strong> Gaming ist mehr als nur ein Hobby – es ist eine Leidenschaft, die unser Team und unsere Community antreibt.</li>
+                        <li><strong>Innovation:</strong> Stetige Verbesserung ist unsere treibende Kraft.</li>
+                    </ul>
+                </section>
+                
+                <section class="about-section">
+                    <h3>Kontaktiere Uns</h3>
+                    <p>Bei Fragen erreichst du uns per E-Mail unter <a href="mailto:Gaming-Elite@outlook.de">Gaming-Elite@outlook.de</a>.</p>
+                </section>
+            </main>
+        </main>
+
+        <footer>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="server.html">Server</a></li>
+                    <li><a href="us.html">Über Uns</a></li>
+                </ul>
+            </nav>
+            <p>&copy; 2025 Gaming Elite. Alle Rechte vorbehalten.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Hide loader and show main content after a delay
+        window.addEventListener('load', function() {
+            const loader = document.getElementById('loader');
+            const mainContent = document.getElementById('mainContent');
+            setTimeout(() => {
+                loader.style.display = 'none';  // Hide the loader
+                mainContent.style.display = 'block';  // Show main content
+                document.body.style.overflow = 'auto';  // Enable scrolling
+            }, 3000); // Adjust delay as needed
+        });
+    </script>
+</body>
+</html>
