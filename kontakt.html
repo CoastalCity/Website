@@ -161,73 +161,6 @@
             }
         }
 
-        .about-page {
-    padding: 4rem 2rem;
-    background-color: var(--background-color);
-    color: var(--text-color);
-    text-align: center;
-}
-
-.about-page h2 {
-    font-size: 2.8rem;
-    color: var(--primary-color);
-    margin-bottom: 2rem;
-}
-
-.about-section {
-    margin-bottom: 3rem;
-    padding: 2rem;
-    background: linear-gradient(145deg, rgba(0, 0, 0, 0.7), rgba(50, 50, 50, 0.9));
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    transition: all 0.3s ease;
-}
-
-.about-section:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
-}
-
-.about-section h3 {
-    font-size: 2rem;
-    color: var(--secondary-color);
-    margin-bottom: 1.5rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.about-section p,
-.about-section ul {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    margin: 0.5rem 0;
-}
-
-.about-section ul {
-    list-style-type: disc;
-    padding-left: 2rem;
-}
-
-.about-section ul li {
-    margin: 0.8rem 0;
-}
-
-/* Responsive Styles */
-@media (max-width: 768px) {
-    .about-page {
-        padding: 3rem 1.5rem;
-    }
-
-    .about-section h3 {
-        font-size: 1.6rem;
-    }
-
-    .about-section p,
-    .about-section ul {
-        font-size: 1rem;
-    }
-}
-
         /* Hero Section */
         .hero {
             margin-top: 80px;
@@ -277,30 +210,48 @@
             padding: 3rem 2rem;
         }
 
-        .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin: 3rem 0;
-        }
-
-        .feature-item {
-            background: var(--card-background);
+            /* Kontaktformular */
+            .contact-form {
+            max-width: 600px;
+            margin: 2rem auto;
             padding: 2rem;
+            background: var(--card-background);
             border-radius: 10px;
-            box-shadow: 0 6px 15px var(--shadow-color);
-            transition: transform 0.3s ease;
+            box-shadow: 0 4px 12px var(--shadow-color);
         }
 
-        .feature-item:hover {
-            transform: translateY(-5px);
-        }
-
-        .feature-item h3 {
-            color: var(--primary-color);
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 1rem;
             margin-bottom: 1.5rem;
-            font-size: 1.5rem;
+            background: var(--background-color);
+            border: 1px solid var(--primary-color);
+            border-radius: 5px;
+            font-size: 1rem;
+            color: var(--text-color);
+        }
+
+        .contact-form input::placeholder,
+        .contact-form textarea::placeholder {
+            color: #bbb;
+        }
+
+        .contact-form button {
+            width: 100%;
+            padding: 1rem;
+            background: var(--button-color);
+            color: var(--text-color);
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2rem;
             font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .contact-form button:hover {
+            background: var(--button-hover-color);
         }
 
         footer {
@@ -405,57 +356,18 @@
             </div>
         </section>
 
-        <main class="main-content">
-            <h2>Unsere Funktionen</h2>
-            <div class="feature-grid">
-                <div class="feature-item">
-                    <h3>High-Performance Server</h3>
-                    <p>Optimierte Hardware für ein lagfreies Spielerlebnis.</p>
-                </div>
-                <div class="feature-item">
-                    <h3>Einfache Bedienung</h3>
-                    <p>Intuitive Verwaltung für Server aller Art.</p>
-                </div>
-                <div class="feature-item">
-                    <h3>24/7 Support</h3>
-                    <p>Unser Team steht dir rund um die Uhr zur Verfügung.</p>
-                </div>
-                <div class="feature-item">
-                    <h3>Community Fokus</h3>
-                    <p>Förderung von Spielerfreundschaften und Teamarbeit.</p>
-                </div>
-            </div>
+          <!-- Hero Section -->
+    <section class="hero">
+        <h2>Kontakt</h2>
+        <p>Wir freuen uns auf deine Nachricht!</p>
+    </section>
 
-            <!-- Über uns -->
-            <main class="about-page">
-                <h2>Über Gaming Elite</h2>
-                
-                <section class="about-section">
-                    <h3>Unsere Geschichte</h3>
-                    <p>Gaming Elite wurde 2023 von leidenschaftlichen Gamern gegründet, die eine Plattform schaffen wollten, auf der sich Spieler vernetzen und gemeinsam ihre Lieblingsspiele genießen können.</p>
-                </section>
-            
-                <section class="about-section">
-                    <h3>Unser Team</h3>
-                    <p>Unser Team besteht aus erfahrenen Entwicklern, Moderatoren und Community-Managern, die sich dafür einsetzen, dass jeder Spieler das beste Erlebnis hat.</p>
-                </section>
-            
-                <section class="about-section">
-                    <h3>Unsere Werte</h3>
-                    <ul>
-                        <li><strong>Gemeinschaft:</strong> Wir glauben an eine freundliche Atmosphäre, die Spieler willkommen heißt.</li>
-                        <li><strong>Leidenschaft:</strong> Gaming ist mehr als nur ein Hobby – es ist eine Leidenschaft, die unser Team und unsere Community antreibt.</li>
-                        <li><strong>Innovation:</strong> Stetige Verbesserung ist unsere treibende Kraft.</li>
-                    </ul>
-                </section>
-                
-                <section class="about-section">
-                    <h3>Kontaktiere Uns</h3>
-                    <p>Bei Fragen erreichst du uns per E-Mail unter <a href="mailto:Gaming-Elite@outlook.de">Gaming-Elite@outlook.de</a>.</p>
-                </section>
-            </main>
-            
-
+        <form class="contact-form" action="mailto:Gaming-Elite@outlook.de" method="post" enctype="text/plain">
+            <input type="text" name=" Name" placeholder="Dein Name" required>
+            <input type="email" name=" E-mail" placeholder="Deine E-Mail" required>
+            <textarea name=" Nachricht" rows="5" placeholder="Deine Nachricht" required></textarea>
+            <button type="submit">Nachricht Senden</button>
+        </form>
         <footer>
             <div class="footer-container">
                 <div class="footer-nav">
@@ -510,3 +422,4 @@
     <script async defer src="https://app-tianji.msgbyte.com/tracker.js" data-website-id="cm5pebfyb35k412yac9jue47i"></script>
 </body>
 </html>
+

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gaming Elite - Home</title>
+    <title>Gaming Elite - Regeln & Discord</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <style>
         /* Globale Design-Variablen */
@@ -161,104 +161,47 @@
             }
         }
 
-        .about-page {
-    padding: 4rem 2rem;
-    background-color: var(--background-color);
-    color: var(--text-color);
-    text-align: center;
-}
-
-.about-page h2 {
-    font-size: 2.8rem;
-    color: var(--primary-color);
-    margin-bottom: 2rem;
-}
-
-.about-section {
-    margin-bottom: 3rem;
-    padding: 2rem;
-    background: linear-gradient(145deg, rgba(0, 0, 0, 0.7), rgba(50, 50, 50, 0.9));
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    transition: all 0.3s ease;
-}
-
-.about-section:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
-}
-
-.about-section h3 {
-    font-size: 2rem;
-    color: var(--secondary-color);
-    margin-bottom: 1.5rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.about-section p,
-.about-section ul {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    margin: 0.5rem 0;
-}
-
-.about-section ul {
-    list-style-type: disc;
-    padding-left: 2rem;
-}
-
-.about-section ul li {
-    margin: 0.8rem 0;
-}
-
-/* Responsive Styles */
-@media (max-width: 768px) {
-    .about-page {
-        padding: 3rem 1.5rem;
-    }
-
-    .about-section h3 {
-        font-size: 1.6rem;
-    }
-
-    .about-section p,
-    .about-section ul {
-        font-size: 1rem;
-    }
-}
-
-        /* Hero Section */
-        .hero {
+        /* Main Content */
+        .main-content {
+            padding: 3rem 2rem;
             margin-top: 80px;
-            background: url('https://source.unsplash.com/1600x900/?gaming,technology') no-repeat center center/cover;
-            padding: 6rem 2rem;
-            text-align: center;
-            color: var(--text-color);
-            position: relative;
         }
 
-        .hero .container {
-            background: rgba(0, 0, 0, 0.6);
-            padding: 3rem;
-            border-radius: 15px;
+        .rules-section,
+        .discord-section {
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: linear-gradient(145deg, rgba(0, 0, 0, 0.7), rgba(50, 50, 50, 0.9));
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .rules-section:hover,
+        .discord-section:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+        }
+
+        .rules-section h2,
+        .discord-section h2 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .rules-section ul,
+        .discord-section p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+        }
+
+        .rules-section ul li {
+            margin: 0.8rem 0;
+        }
+
+        .discord-link {
             display: inline-block;
-            box-shadow: 0 4px 12px var(--shadow-color);
-        }
-
-        .hero h2 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
-        }
-
-        .hero p {
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
-            font-weight: 300;
-        }
-
-        .cta-button {
             background-color: var(--button-color);
             color: var(--text-color);
             padding: 1rem 2rem;
@@ -269,38 +212,8 @@
             font-size: 1.2rem;
         }
 
-        .cta-button:hover {
+        .discord-link:hover {
             background-color: var(--button-hover-color);
-        }
-
-        .main-content {
-            padding: 3rem 2rem;
-        }
-
-        .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin: 3rem 0;
-        }
-
-        .feature-item {
-            background: var(--card-background);
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 6px 15px var(--shadow-color);
-            transition: transform 0.3s ease;
-        }
-
-        .feature-item:hover {
-            transform: translateY(-5px);
-        }
-
-        .feature-item h3 {
-            color: var(--primary-color);
-            margin-bottom: 1.5rem;
-            font-size: 1.5rem;
-            font-weight: 600;
         }
 
         footer {
@@ -397,64 +310,31 @@
             </div>
         </header>
 
-        <section class="hero">
-            <div class="container">
-                <h2>Willkommen bei Gaming Elite!</h2>
-                <p>Deine Plattform für außergewöhnliche Gameserver.</p>
-                <a href="server.html" class="cta-button">Unsere Server</a>
-            </div>
-        </section>
-
         <main class="main-content">
-            <h2>Unsere Funktionen</h2>
-            <div class="feature-grid">
-                <div class="feature-item">
-                    <h3>High-Performance Server</h3>
-                    <p>Optimierte Hardware für ein lagfreies Spielerlebnis.</p>
-                </div>
-                <div class="feature-item">
-                    <h3>Einfache Bedienung</h3>
-                    <p>Intuitive Verwaltung für Server aller Art.</p>
-                </div>
-                <div class="feature-item">
-                    <h3>24/7 Support</h3>
-                    <p>Unser Team steht dir rund um die Uhr zur Verfügung.</p>
-                </div>
-                <div class="feature-item">
-                    <h3>Community Fokus</h3>
-                    <p>Förderung von Spielerfreundschaften und Teamarbeit.</p>
-                </div>
-            </div>
+            <!-- Regeln Section -->
+            <section class="rules-section">
+                <h2>Regeln</h2>
+                <ul>
+                    <li>Sei respektvoll gegenüber anderen Spielern und dem Team.</li>
+                    <li>Kein Spam oder Werbung in den Chats.</li>
+                    <li>Cheats, Hacks und Exploits sind strengstens verboten.</li>
+                    <li>Folge den Anweisungen des Teams.</li>
+                    <li>Haltet euch an die spezifischen Regeln der einzelnen Server.</li>
+                    <li>Verwende keine beleidigende oder diskriminierende Sprache.</li>
+                    <li>Diskussionen über politische oder religiöse Themen sind nicht erlaubt.</li>
+                    <li>Teile keine sensiblen oder persönlichen Informationen.</li>
+                    <li>Respektiere die Privatsphäre anderer Nutzer.</li>
+                    <li>Haltet euch an die Altersbeschränkungen der jeweiligen Spiele.</li>
+                </ul>
+            </section>
 
-            <!-- Über uns -->
-            <main class="about-page">
-                <h2>Über Gaming Elite</h2>
-                
-                <section class="about-section">
-                    <h3>Unsere Geschichte</h3>
-                    <p>Gaming Elite wurde 2023 von leidenschaftlichen Gamern gegründet, die eine Plattform schaffen wollten, auf der sich Spieler vernetzen und gemeinsam ihre Lieblingsspiele genießen können.</p>
-                </section>
-            
-                <section class="about-section">
-                    <h3>Unser Team</h3>
-                    <p>Unser Team besteht aus erfahrenen Entwicklern, Moderatoren und Community-Managern, die sich dafür einsetzen, dass jeder Spieler das beste Erlebnis hat.</p>
-                </section>
-            
-                <section class="about-section">
-                    <h3>Unsere Werte</h3>
-                    <ul>
-                        <li><strong>Gemeinschaft:</strong> Wir glauben an eine freundliche Atmosphäre, die Spieler willkommen heißt.</li>
-                        <li><strong>Leidenschaft:</strong> Gaming ist mehr als nur ein Hobby – es ist eine Leidenschaft, die unser Team und unsere Community antreibt.</li>
-                        <li><strong>Innovation:</strong> Stetige Verbesserung ist unsere treibende Kraft.</li>
-                    </ul>
-                </section>
-                
-                <section class="about-section">
-                    <h3>Kontaktiere Uns</h3>
-                    <p>Bei Fragen erreichst du uns per E-Mail unter <a href="mailto:Gaming-Elite@outlook.de">Gaming-Elite@outlook.de</a>.</p>
-                </section>
-            </main>
-            
+            <!-- Discord Section -->
+            <section class="discord-section">
+                <h2>Tritt unserem Discord bei</h2>
+                <p>Unsere Discord-Community ist der perfekte Ort, um mit anderen Spielern in Kontakt zu treten, Unterstützung zu erhalten und an Events teilzunehmen.</p>
+                <a href="https://discord.gg/R5TNzCV6mS" class="discord-link">Discord Beitreten</a>
+            </section>
+        </main>
 
         <footer>
             <div class="footer-container">
@@ -495,7 +375,6 @@
             nav.classList.toggle('active');
             burgerMenu.classList.toggle('open');
         });
-
         // Hide loader and show main content after a delay
         window.addEventListener('load', function() {
             const loader = document.getElementById('loader');
@@ -510,3 +389,5 @@
     <script async defer src="https://app-tianji.msgbyte.com/tracker.js" data-website-id="cm5pebfyb35k412yac9jue47i"></script>
 </body>
 </html>
+
+
