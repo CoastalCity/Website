@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gaming Elite - Gameserver</title>
+    <title>Gaming Elite - Regeln & Discord</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <style>
         /* Globale Design-Variablen */
@@ -50,7 +50,7 @@
         .loader-text {
             font-size: 3rem;
             font-weight: 700;
-            color: var(--primary-color);
+            color: whitesmoke;
             text-transform: uppercase;
             animation: fadeInSlideDown 2s forwards;
         }
@@ -161,212 +161,48 @@
             }
         }
 
-        .about-page {
-    padding: 4rem 2rem;
-    background-color: var(--background-color);
-    color: var(--text-color);
-    text-align: center;
-}
-
-.about-page h2 {
-    font-size: 2.8rem;
-    color: var(--primary-color);
-    margin-bottom: 2rem;
-}
-
-.about-section {
-    margin-bottom: 3rem;
-    padding: 2rem;
-    background: linear-gradient(145deg, rgba(0, 0, 0, 0.7), rgba(50, 50, 50, 0.9));
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    transition: all 0.3s ease;
-}
-
-.about-section:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
-}
-
-.about-section h3 {
-    font-size: 2rem;
-    color: var(--secondary-color);
-    margin-bottom: 1.5rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.about-section p,
-.about-section ul {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    margin: 0.5rem 0;
-}
-
-.about-section ul {
-    list-style-type: disc;
-    padding-left: 2rem;
-}
-
-.about-section ul li {
-    margin: 0.8rem 0;
-}
-
-/* Responsive Styles */
-@media (max-width: 768px) {
-    .about-page {
-        padding: 3rem 1.5rem;
-    }
-
-    .about-section h3 {
-        font-size: 1.6rem;
-    }
-
-    .about-section p,
-    .about-section ul {
-        font-size: 1rem;
-    }
-}
-
-        /* Hero Section */
-        .hero {
+        /* Main Content */
+        .main-content {
+            padding: 3rem 2rem;
             margin-top: 80px;
-            background: url('https://source.unsplash.com/1600x900/?gaming,technology') no-repeat center center/cover;
-            padding: 6rem 2rem;
-            text-align: center;
-            color: var(--text-color);
-            position: relative;
         }
 
-        .hero .container {
-            background: rgba(0, 0, 0, 0.6);
-            padding: 3rem;
-            border-radius: 15px;
-            display: inline-block;
-            box-shadow: 0 4px 12px var(--shadow-color);
+        .hero {
+            margin-top: 100px;
+            background: url('https://source.unsplash.com/1600x900/?gaming') no-repeat center center/cover;
+            padding: 8rem 2rem;
+            text-align: center;
+            color: var(--text-color);
+            box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.8);
         }
 
         .hero h2 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
+            font-size: 3.5rem;
+            text-shadow: 0 4px 10px var(--shadow-color);
         }
 
-        .hero p {
-            font-size: 1.5rem;
+        .team-card, .tournament-card, .news-card {
+            background: var(--card-background);
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px var(--shadow-color);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
             margin-bottom: 2rem;
-            font-weight: 300;
         }
 
-                /* Server Section */
-                .server-section {
-            padding: 4rem 2rem;
-            background-color: var(--background-color);
-            color: var(--text-color);
+        .team-card:hover, .tournament-card:hover, .news-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 30px var(--shadow-color);
+        }
+
+        .live-stream {
+            background: var(--card-background);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px var(--shadow-color);
             text-align: center;
+            margin-top: 2rem;
         }
-
-        .server-section h2 {
-            font-size: 2.8rem;
-            color: var(--primary-color);
-            margin-bottom: 2rem;
-        }
-
-        .server-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .server-card {
-            background: var(--card-background);
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 6px 15px var(--shadow-color);
-            transition: transform 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .server-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .server-card h3 {
-            color: var(--primary-color);
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .server-status {
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin-top: 1rem;
-            padding: 0.5rem 1rem;
-            border-radius: 5px;
-        }
-
-        .status-online {
-            background-color: var(--green);
-            color: var(--text-color);
-        }
-
-        .status-offline {
-            background-color: var(--red);
-            color: var(--text-color);
-        }
-
-        .status-maintenance {
-            background-color: var(--yellow);
-            color: var(--text-color);
-        }
-
-        .cta-button {
-            background-color: var(--button-color);
-            color: var(--text-color);
-            padding: 1rem 2rem;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: background-color 0.3s;
-            font-size: 1.2rem;
-        }
-
-        .cta-button:hover {
-            background-color: var(--button-hover-color);
-        }
-
-        .main-content {
-            padding: 3rem 2rem;
-        }
-
-        .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin: 3rem 0;
-        }
-
-        .feature-item {
-            background: var(--card-background);
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 6px 15px var(--shadow-color);
-            transition: transform 0.3s ease;
-        }
-
-        .feature-item:hover {
-            transform: translateY(-5px);
-        }
-
-        .feature-item h3 {
-            color: var(--primary-color);
-            margin-bottom: 1.5rem;
-            font-size: 1.5rem;
-            font-weight: 600;
-        }
-
         footer {
             background: var(--header-background);
             color: var(--text-color);
@@ -440,7 +276,7 @@
 <body>
     <!-- Loader -->
     <div class="loader" id="loader">
-        <div class="loader-text">Gaming Elite</div>
+        <div class="loader-text">Gaming Elite E-Sports</div>
     </div>
 
     <!-- Main Content -->
@@ -463,65 +299,28 @@
         </header>
 
         <section class="hero">
-            <div class="container">
-                <h2>Willkommen bei Gaming Elite!</h2>
-                <p>Hier sind unsere Gameserver</p>
+            <h2>Willkommen im E-Sports Bereich!</h2>
+            <p>Erlebe den Nervenkitzel der E-Sports-Welt mit Gaming Elite!</p>
+        </section>
+    
+        <section class="team-section">
+            <h2>Unsere Events</h2>
+            <div class="team-card">
+                <h3>Rocket League</h3>
+                <p>Bereite dein Team vor!</p>
+            </div>
+        <section class="tournament-section">
+            <h2>Bevorstehende Turniere</h2>
+            <div class="tournament-card">
+                <h3>In Planung</h3>
+                <p>Ergebnisse in Kürze</p>
             </div>
         </section>
-            
-<!-- Server Section -->
- <section class="server-section">
-    <h2>Unsere Server</h2>
-    <div class="server-cards">
-        <div class="server-card">
-            <h3>Minecraft</h3>
-            <p>Werde Teil unserer Minecraft Community</p>
-            <p></p>
-            <section class="about-section">
-                <h3>Server Details</h3>
-                <ul>
-                    <li>IP-Adresse: Auf Grund von Wartung nicht Bekannt</li>
-                    <li>Mods: Keine</li>
-                    <li>Whitelist: Keine</li>
-                    <li>Serverstatus: Wartung</li>
-                </ul>
-            </section>
-            <a href="#" class="cta-button">Server betreten</a>
-        </div>
-        <div class="server-card">
-            <h3>LS 2025</h3>
-            <p>Werde Teil unserer Minecraft Community</p>
-            <p></p>
-            <section class="about-section">
-                <h3>Server Details</h3>
-                <ul>
-                    <li>IP-Adresse: Auf Grund von Wartung nicht Bekannt</li>
-                    <li>Mods: Keine</li>
-                    <li>Whitelist: Keine</li>
-                    <li>Serverstatus: Wartung</li>
-                </ul>
-            </section>
-            <a href="#" class="cta-button">Server betreten</a>
-        </div>
-        <div class="server-card">
-            <h3>Rust [DE] Gaming Elite</h3>
-            <p>Werde Teil unserer Rust Community</p>
-            <p></p>
-            <section class="about-section">
-                <h3>Server Details</h3>
-                <ul>
-                    <li>IP-Adresse: Server Connecten</li>
-                    <li>Mods: Keine</li>
-                    <li>Whitelist: Keine</li>
-                    <li>Serverstatus: Online</li>
-                </ul>
-            </section>
-            <a href="https://discord.gg/R5TNzCV6mS" class="cta-button">Server betreten</a>
-        </div>
-    </div>
-</section>
-
-
+    
+        <section class="live-stream">
+            <h2>Live-Stream</h2>
+            <p>Verfolge unsere Spiele live auf Twitch!</p>
+            <iframe src="https://player.twitch.tv/lgd_gamer" frameborder="0" allowfullscreen="true" scrolling="no" height="378" width="620"></iframe>
         <footer>
             <div class="footer-container">
                 <div class="footer-nav">
@@ -561,7 +360,6 @@
             nav.classList.toggle('active');
             burgerMenu.classList.toggle('open');
         });
-
         // Hide loader and show main content after a delay
         window.addEventListener('load', function() {
             const loader = document.getElementById('loader');
@@ -576,3 +374,5 @@
     <script async defer src="https://app-tianji.msgbyte.com/tracker.js" data-website-id="cm5pebfyb35k412yac9jue47i"></script>
 </body>
 </html>
+
+
