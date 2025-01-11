@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gaming Elite - Regeln & Discord</title>
+    <title>Gaming Elite - Impressum</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <style>
-        /* Globale Design-Variablen */
         :root {
             --primary-color: #00ffcc;
             --secondary-color: #ff6600;
@@ -161,47 +160,148 @@
             }
         }
 
-        /* Main Content */
-        .main-content {
-            padding: 3rem 2rem;
+        .about-page {
+    padding: 4rem 2rem;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    text-align: center;
+}
+
+.about-page h2 {
+    font-size: 2.8rem;
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+}
+
+.about-section {
+    margin-bottom: 3rem;
+    padding: 2rem;
+    background: linear-gradient(145deg, rgba(0, 0, 0, 0.7), rgba(50, 50, 50, 0.9));
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.about-section:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+}
+
+.about-section h3 {
+    font-size: 2rem;
+    color: var(--secondary-color);
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.about-section p,
+.about-section ul {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin: 0.5rem 0;
+}
+
+.about-section ul {
+    list-style-type: disc;
+    padding-left: 2rem;
+}
+
+.about-section ul li {
+    margin: 0.8rem 0;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .about-page {
+        padding: 3rem 1.5rem;
+    }
+
+    .about-section h3 {
+        font-size: 1.6rem;
+    }
+
+    .about-section p,
+    .about-section ul {
+        font-size: 1rem;
+    }
+}
+section {
+    max-width: 900px;
+    margin: 100px auto;
+    padding: 3rem;
+    background: linear-gradient(145deg, #1a1a1a, #2b2b2b);
+    border-radius: 15px;
+    box-shadow: 0 8px 24px var(--shadow-color);
+    text-align: left;
+}
+
+section h2 {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    color: var(--primary-color);
+    text-align: center;
+}
+
+section h3 {
+    font-size: 1.8rem;
+    color: var(--secondary-color);
+    margin-top: 2rem;
+}
+
+section p {
+    font-size: 1.1rem;
+    margin-top: 1rem;
+    line-height: 1.8;
+}
+
+section:hover {
+    transform: translateY(-5px);
+    transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    section {
+        padding: 2rem;
+        margin: 80px 1rem;
+    }
+}
+
+    section h2 {
+        font-size: 2.5rem;
+    }
+
+        /* Hero Section */
+        .hero {
             margin-top: 80px;
+            background: url('https://source.unsplash.com/1600x900/?gaming,technology') no-repeat center center/cover;
+            padding: 6rem 2rem;
+            text-align: center;
+            color: var(--text-color);
+            position: relative;
         }
 
-        .rules-section,
-        .discord-section {
-            margin-bottom: 3rem;
-            padding: 2rem;
-            background: linear-gradient(145deg, rgba(0, 0, 0, 0.7), rgba(50, 50, 50, 0.9));
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-            transition: all 0.3s ease;
-        }
-
-        .rules-section:hover,
-        .discord-section:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
-        }
-
-        .rules-section h2,
-        .discord-section h2 {
-            font-size: 2.5rem;
-            color: var(--primary-color);
-            margin-bottom: 1.5rem;
-        }
-
-        .rules-section ul,
-        .discord-section p {
-            font-size: 1.2rem;
-            line-height: 1.8;
-        }
-
-        .rules-section ul li {
-            margin: 0.8rem 0;
-        }
-
-        .discord-link {
+        .hero .container {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 3rem;
+            border-radius: 15px;
             display: inline-block;
+            box-shadow: 0 4px 12px var(--shadow-color);
+        }
+
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .cta-button {
             background-color: var(--button-color);
             color: var(--text-color);
             padding: 1rem 2rem;
@@ -212,8 +312,38 @@
             font-size: 1.2rem;
         }
 
-        .discord-link:hover {
+        .cta-button:hover {
             background-color: var(--button-hover-color);
+        }
+
+        .main-content {
+            padding: 3rem 2rem;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .feature-item {
+            background: var(--card-background);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 6px 15px var(--shadow-color);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-item h3 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            font-weight: 600;
         }
 
         footer {
@@ -311,31 +441,32 @@
             </div>
         </header>
 
-        <main class="main-content">
-            <!-- Regeln Section -->
-            <section class="rules-section">
-                <h2>Regeln</h2>
-                <ul>
-                    <li>Sei respektvoll gegenüber anderen Spielern und dem Team.</li>
-                    <li>Kein Spam oder Werbung in den Chats.</li>
-                    <li>Cheats, Hacks und Exploits sind strengstens verboten.</li>
-                    <li>Folge den Anweisungen des Teams.</li>
-                    <li>Haltet euch an die spezifischen Regeln der einzelnen Server.</li>
-                    <li>Verwende keine beleidigende oder diskriminierende Sprache.</li>
-                    <li>Diskussionen über politische oder religiöse Themen sind nicht erlaubt.</li>
-                    <li>Teile keine sensiblen oder persönlichen Informationen.</li>
-                    <li>Respektiere die Privatsphäre anderer Nutzer.</li>
-                    <li>Haltet euch an die Altersbeschränkungen der jeweiligen Spiele.</li>
-                </ul>
-            </section>
+        <section>
+            <h2>Datenschutzerklärung</h2>
+            <h3>1. Name und Kontaktdaten des Verantwortlichen</h3>
+            <p>Ruben Baumann<br>Theodor-Körner-Straße 3, 02826 Görlitz<br>Telefon: +49 15252587760<br>E-Mail: Gaming-Elite@outlook.de</p>
 
-            <!-- Discord Section -->
-            <section class="discord-section">
-                <h2>Tritt unserem Discord bei</h2>
-                <p>Unsere Discord-Community ist der perfekte Ort, um mit anderen Spielern in Kontakt zu treten, Unterstützung zu erhalten und an Events teilzunehmen.</p>
-                <a href="https://discord.gg/R5TNzCV6mS" class="discord-link">Discord Beitreten</a>
-            </section>
-        </main>
+            <h3>2. Allgemeines zur Datenverarbeitung</h3>
+            <p>Wir verarbeiten personenbezogene Daten nur, wenn dies erforderlich ist.</p>
+
+            <h3>3. Bereitstellung der Website und Server-Logfiles</h3>
+            <p>Hosting durch GitHub Pages. Details siehe GitHub Datenschutz.</p>
+
+            <h3>4. Hosting der Spiele auf Hetzner-Servern</h3>
+            <p>Hosting durch Hetzner Online GmbH. Details siehe Hetzner Datenschutz.</p>
+
+            <h3>5. Web-Tracking mit Tianji</h3>
+            <p>Zur Optimierung nutzen wir Tianji. Daten werden anonymisiert erfasst.</p>
+
+            <h3>6. Nutzung von sozialen Netzwerken</h3>
+            <p>Unsere Social-Media-Aktivitäten unterliegen den Richtlinien von TikTok und Discord.</p>
+
+            <h3>7. Rechte der betroffenen Person</h3>
+            <p>Du hast Rechte auf Auskunft, Berichtigung, Löschung, etc.</p>
+
+            <h3>8. Kontakt</h3>
+            <p>Ruben Baumann<br>E-Mail: Gaming-Elite@outlook.de<br>Telefon: +49 15252587760</p>
+        </section>
 
         <footer>
             <div class="footer-container">
@@ -347,7 +478,6 @@
                         <li><a href="server">Server</a></li>
                         <li><a href="us">Unser Team</a></li>
                         <li><a href="kontakt">Kontakt</a></li>
-                        <li><a href="impressum">Impressum</a></li>
                     </ul>
                 </div>
                 <div class="footer-contact">
@@ -377,6 +507,7 @@
             nav.classList.toggle('active');
             burgerMenu.classList.toggle('open');
         });
+
         // Hide loader and show main content after a delay
         window.addEventListener('load', function() {
             const loader = document.getElementById('loader');
@@ -391,5 +522,3 @@
     <script async defer src="https://app-tianji.msgbyte.com/tracker.js" data-website-id="cm5pebfyb35k412yac9jue47i"></script>
 </body>
 </html>
-
-
