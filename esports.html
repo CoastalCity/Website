@@ -182,13 +182,51 @@
         }
 
         .team-card, .tournament-card, .news-card {
-            background: var(--card-background);
-            padding: 2.5rem;
-            border-radius: 15px;
-            box-shadow: 0 8px 20px var(--shadow-color);
-            transition: transform 0.4s ease, box-shadow 0.4s ease;
-            margin-bottom: 2rem;
-        }
+        background: var(--card-background);
+        padding: 2.5rem;
+        border-radius: 15px;
+        box-shadow: 0 8px 20px var(--shadow-color);
+        transition: transform 0.4s ease, box-shadow 0.4s ease;
+        margin-bottom: 2rem;
+        color: var(--text-color);
+    }
+
+    .news-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 12px 30px var(--shadow-color);
+    }
+
+    .news-section h2 {
+        color: var(--accent-color);
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .news-card h3::before {
+        content: '\1F4C5'; /* Calendar Icon */
+        margin-right: 0.5rem;
+    }
+
+    .news-card a {
+        color: var(--accent-color);
+        text-decoration: none;
+    }
+
+    .news-card a:hover {
+        text-decoration: underline;
+    }
+
+    ol li::marker {
+        color: var(--accent-color);
+    }
+
+    hr {
+        border: 0;
+        height: 1px;
+        background: var(--accent-color);
+        margin: 1.5rem 0;
+    }
+        
 
         .team-card:hover, .tournament-card:hover, .news-card:hover {
             transform: scale(1.05);
@@ -302,6 +340,29 @@
             <h2>Willkommen im E-Sports Bereich!</h2>
             <p>Erlebe den Nervenkitzel der E-Sports-Welt mit Gaming Elite!</p>
         </section>
+
+        <section class="news-section">
+            <h2>Infos</h2>
+            <div class="news-card">
+                <h3>Du willst ein Team eröffnen?</h3>
+                <p>Wenn du bei uns ein Team eröffnen willst, kannst du das entweder per Ticket auf unserem Discord oder per Mail unter <a href="mailto:Gaming-Elite@outlook.de">Gaming-Elite@outlook.de</a> tun.</p>
+                <hr>
+                <h3>Was brauchst du?</h3>
+                <ol>
+                    <li>Mindestens 3 Personen in deinem Team</li>
+                    <li>Vorstellung deines Spiels und deiner Vision</li>
+                    <li>Nennung deines Teams im Ticket</li>
+                    <li>Mitglied auf unserem Discord sein</li>
+                </ol>
+                <hr>
+                <h3>Was hast du davon?</h3>
+                <ol>
+                    <li>Wir organisieren Matches gegen andere Teams</li>
+                    <li>Keine Kosten – komplett kostenlos!</li>
+                </ol>
+            </div>
+        </section>
+        
     
         <section class="team-section">
             <h2>Unsere Events</h2>
