@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gaming Elite - Home</title>
+    <title>Gaming Elite - Impressum</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <style>
-        /* Globale Design-Variablen */
         :root {
             --primary-color: #00ffcc;
             --secondary-color: #ff6600;
@@ -161,97 +160,56 @@
             }
         }
 
-        /* Hero Section */
-        .hero {
-            margin-top: 80px;
-            background: url('https://source.unsplash.com/1600x900/?gaming,technology') no-repeat center center/cover;
-            padding: 6rem 2rem;
-            text-align: center;
-            color: var(--text-color);
-            position: relative;
+    section h2 {
+        font-size: 2.5rem;
+    }
+
+        .news-section {
+            padding: 6rem 2rem 2rem;
+            max-width: 1200px;
+            margin: auto;
         }
 
-        .hero .container {
-            background: rgba(0, 0, 0, 0.6);
-            padding: 3rem;
-            border-radius: 15px;
-            display: inline-block;
-            box-shadow: 0 4px 12px var(--shadow-color);
-        }
-
-        .hero h2 {
+        .news-section h2 {
             font-size: 3rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
-        }
-
-        .hero p {
-            font-size: 1.5rem;
+            text-align: center;
+            color: var(--primary-color);
             margin-bottom: 2rem;
-            font-weight: 300;
         }
 
-        .cta-button {
-            background-color: var(--button-color);
-            color: var(--text-color);
-            padding: 1rem 2rem;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: background-color 0.3s;
-            font-size: 1.2rem;
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
         }
 
-        .cta-button:hover {
-            background-color: var(--button-hover-color);
-        }
-
-        .main-content {
-            padding: 3rem 2rem;
-        }
-
-            /* Kontaktformular */
-            .contact-form {
-            max-width: 600px;
-            margin: 2rem auto;
-            padding: 2rem;
-            background: var(--card-background);
+        .news-card {
+            background-color: var(--card-background);
+            padding: 1.5rem;
             border-radius: 10px;
-            box-shadow: 0 4px 12px var(--shadow-color);
+            box-shadow: 0 4px 10px var(--shadow-color);
+            transition: transform 0.3s ease;
         }
 
-        .contact-form input,
-        .contact-form textarea {
-            width: 100%;
-            padding: 1rem;
-            margin-bottom: 1.5rem;
-            background: var(--background-color);
-            border: 1px solid var(--primary-color);
-            border-radius: 5px;
+        .news-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .news-card h3 {
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+
+        .news-card p {
             font-size: 1rem;
-            color: var(--text-color);
+            margin-bottom: 1rem;
         }
 
-        .contact-form input::placeholder,
-        .contact-form textarea::placeholder {
-            color: #bbb;
-        }
-
-        .contact-form button {
-            width: 100%;
-            padding: 1rem;
-            background: var(--button-color);
-            color: var(--text-color);
-            border: none;
-            border-radius: 5px;
-            font-size: 1.2rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background 0.3s ease;
-        }
-
-        .contact-form button:hover {
-            background: var(--button-hover-color);
+        .read-more {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: bold;
         }
 
         footer {
@@ -350,26 +308,33 @@
             </div>
         </header>
 
-        <section class="hero">
-            <div class="container">
-                <h2>Willkommen bei Gaming Elite!</h2>
-                <p>Deine Plattform für außergewöhnliche Gameserver.</p>
-                <a href="server.html" class="cta-button">Unsere Server</a>
+        <section class="news-section">
+            <h2>Neuigkeiten & Ankündigungen</h2>
+            <div class="news-grid">
+                <div class="news-card">
+                    <h3>E-Sports Turnier 2025</h3>
+                    <p>Bereitet euch auf unser großes E-Sports Turnier 2025 vor! Jetzt anmelden und Preise gewinnen!</p>
+                    <p>gepostet am: 16.01.2025 11:03</p>
+                    <a href="esports.html" class="read-more">Mehr erfahren</a>
+                </div>
+                <div class="news-grid">
+                    <div class="news-card">
+                        <h3>Social-Media-Aktivitäten</h3>
+                        <p>Wir habe unsere Social-Media-Aktivitäten gestartet</p>
+                        <p>gepostet am: 16.01.2025 11:02</p>
+                        <a href="us.html" class="read-more">Mehr erfahren</a>
+                    </div>
+                    <div class="news-grid">
+                        <div class="news-card">
+                            <h3>Unser Discord</h3>
+                            <p>Unser Discord hat eröffnet, Join Now!</p>
+                            <p>gepostet am: 16.01.2025 11:01</p>
+                            <a href="Rules-Discord.html" class="read-more">Mehr erfahren</a>
+                        </div>
+
             </div>
         </section>
-
-          <!-- Hero Section -->
-    <section class="hero">
-        <h2>Kontakt</h2>
-        <p>Wir freuen uns auf deine Nachricht!</p>
-    </section>
-
-        <form class="contact-form" action="mailto:Gaming-Elite@outlook.de" method="post" enctype="text/plain">
-            <input type="text" name=" Name" placeholder="Dein Name" required>
-            <input type="email" name=" E-mail" placeholder="Deine E-Mail" required>
-            <textarea name=" Nachricht" rows="5" placeholder="Deine Nachricht" required></textarea>
-            <button type="submit">Nachricht Senden</button>
-        </form>
+    
         <footer>
             <div class="footer-container">
                 <div class="footer-nav">
@@ -422,4 +387,3 @@
     <script async defer src="https://app-tianji.msgbyte.com/tracker.js" data-website-id="cm5pebfyb35k412yac9jue47i"></script>
 </body>
 </html>
-
